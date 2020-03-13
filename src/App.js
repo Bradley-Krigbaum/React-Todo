@@ -39,7 +39,7 @@ class App extends React.Component {
         ...this.state.todoList,
         {
           name: itemName,
-          id: (Math.random() * Math.random()).toString(9).substr(2, 9),
+          id: Date.now(),
           completed: false
         }
       ]
@@ -73,14 +73,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div>
-          <h2>Welcome to your Todo App!</h2>
-          <TodoForm 
-            addItem={this.addItem} 
-            handleAddItem={this.handleAddItem} 
-            handleChanges={this.handleChanges}
-          />
-        </div>
+        <h2>Welcome to your Todo App!</h2>
+        <TodoForm 
+          addItem={this.addItem}
+        />
         <TodoList
           todoList={this.state.todoList}
           toggleCompleted={this.toggleCompleted}
